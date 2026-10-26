@@ -11,10 +11,11 @@
   <meta name="apple-mobile-web-app-title" content="単価比較">
   <meta name="theme-color" content="#f472b6">
 
-  <!-- ホーム画面アイコン用設定（ピンク背景にネコちゃん） -->
+  <!-- アイコン設定 -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='25' fill='%23f472b6'/%3E%3Ctext x='50' y='68' font-size='56' text-anchor='middle'%3E🐱%3C/text%3E%3C/svg%3E">
   <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='25' fill='%23f472b6'/%3E%3Ctext x='50' y='68' font-size='56' text-anchor='middle'%3E🐱%3C/text%3E%3C/svg%3E">
 
+  <!-- PWAマニフェスト -->
   <link rel="manifest" href="data:application/manifest+json;charset=utf-8,%7B%22name%22%3A%22%E3%81%8A%E8%B2%B7%E3%81%84%E7%89%A9%E5%8D%98%E4%BE%A1%E3%81%8F%E3%82%89%E3%81%B9%E3%80%9C%E3%82%8B%22%2C%22short_name%22%3A%22%E5%8D%98%E4%BE%A1%E6%AF%94%E8%BC%83%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23fff1f2%22%2C%22theme_color%22%3A%22%23f472b6%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%253Csvg%2520xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%2520viewBox%3D%270%25200%2520100%2520100%27%253E%253Crect%2520width%3D%27100%27%2520height%3D%27100%27%2520rx%3D%2725%27%2520fill%3D%27%2523f472b6%27%2F%253E%253Ctext%2520x%3D%2750%27%2520y%3D%2768%27%2520font-size%3D%2756%27%2520text-anchor%3D%27middle%27%253E%25F0%259F%2590%25B1%253C%2Ftext%253E%253C%2Fsvg%253E%22%2C%22sizes%22%3A%22192x192%20512x512%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%2C%22purpose%22%3A%22any%20maskable%22%7D%5D%7D">
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -70,7 +71,7 @@
       </button>
     </div>
 
-    <!-- 判定バナー（ピンク×ショコラ） -->
+    <!-- 判定バナー -->
     <div id="resultBanner" class="bg-gradient-to-r from-pink-400 to-rose-400 text-white rounded-2xl p-4 text-center mb-4 transition-all duration-300 shadow-sm">
       <p class="text-sm font-black tracking-wide">🐱 どちらがお得か判定します 🐶</p>
       <p class="text-xs font-medium text-pink-100 mt-0.5">価格と数量を入力してください</p>
@@ -78,7 +79,7 @@
 
     <div class="space-y-4">
       
-      <!-- 商品A（ミルキーピンク＆ねこちゃん） -->
+      <!-- 商品A -->
       <div id="cardA" class="bg-white rounded-2xl p-4 border-2 border-pink-200 shadow-sm transition-all duration-200">
         <div class="flex justify-between items-center mb-3">
           <div class="flex items-center gap-2">
@@ -108,7 +109,6 @@
             </div>
           </div>
 
-          <!-- クイックボタン（淡いピンクチップ） -->
           <div class="flex gap-1.5 overflow-x-auto pb-1" id="quickChipsA"></div>
 
           <div class="grid grid-cols-5 gap-2">
@@ -136,7 +136,7 @@
         </div>
       </div>
 
-      <!-- 商品B（ショコラピンク＆わんちゃん） -->
+      <!-- 商品B -->
       <div id="cardB" class="bg-white rounded-2xl p-4 border-2 border-amber-200 shadow-sm transition-all duration-200">
         <div class="flex justify-between items-center mb-3">
           <div class="flex items-center gap-2">
@@ -166,7 +166,6 @@
             </div>
           </div>
 
-          <!-- クイックボタン（ショコラベージュチップ） -->
           <div class="flex gap-1.5 overflow-x-auto pb-1" id="quickChipsB"></div>
 
           <div class="grid grid-cols-5 gap-2">
@@ -198,6 +197,18 @@
   </div>
 
   <script>
+    // PWAインストールのためのService Worker登録
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        const swBlob = new Blob([
+          "self.addEventListener('install', e => self.skipWaiting());\n" +
+          "self.addEventListener('activate', e => self.clients.claim());\n" +
+          "self.addEventListener('fetch', e => e.respondWith(fetch(e.request)));"
+        ], { type: 'application/javascript' });
+        navigator.serviceWorker.register(URL.createObjectURL(swBlob)).catch(() => {});
+      });
+    }
+
     let currentMode = 'weight';
 
     const chipsData = {
