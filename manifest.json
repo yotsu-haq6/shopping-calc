@@ -1,7 +1,9 @@
 {
+  "id": "/shopping-calc/",
   "name": "お買い物単価くらべ〜る",
   "short_name": "単価比較",
-  "start_url": "./index.html",
+  "start_url": "/shopping-calc/",
+  "scope": "/shopping-calc/",
   "display": "standalone",
   "background_color": "#fff1f2",
   "theme_color": "#f472b6",
