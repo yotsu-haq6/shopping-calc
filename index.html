@@ -9,9 +9,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="単価比較">
-  <meta name="theme-color" content="#10b981">
+  <meta name="theme-color" content="#f472b6">
 
-  <link rel="manifest" href="data:application/manifest+json;charset=utf-8,%7B%22name%22%3A%22%E3%81%8A%E8%B2%B7%E3%81%84%E7%89%A9%E5%8D%98%E4%BE%A1%E3%81%8F%E3%82%89%E3%81%B9%E3%80%9C%E3%82%8B%22%2C%22short_name%22%3A%22%E5%8D%98%E4%BE%A1%E6%AF%94%E8%BC%83%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23f8fafc%22%2C%22theme_color%22%3A%22%2310b981%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%253Csvg%2520xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%2520viewBox%3D%270%25200%2520100%2520100%27%253E%253Crect%2520width%3D%27100%27%2520height%3D%27100%27%2520rx%3D%2720%27%2520fill%3D%27%252310b981%27%2F%253E%253Ctext%2520x%3D%2750%27%2520y%3D%2765%27%2520font-size%3D%2755%27%2520text-anchor%3D%27middle%27%253E%25F0%259F%259B%2592%253C%2Ftext%253E%253C%2Fsvg%253E%22%2C%22sizes%22%3A%22192x192%20512x512%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%2C%22purpose%22%3A%22any%20maskable%22%7D%5D%7D">
+  <link rel="manifest" href="data:application/manifest+json;charset=utf-8,%7B%22name%22%3A%22%E3%81%8A%E8%B2%B7%E3%81%84%E7%89%A9%E5%8D%98%E4%BE%A1%E3%81%8F%E3%82%89%E3%81%B9%E3%80%9C%E3%82%8B%22%2C%22short_name%22%3A%22%E5%8D%98%E4%BE%A1%E6%AF%94%E8%BC%83%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23fff1f2%22%2C%22theme_color%22%3A%22%23f472b6%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%253Csvg%2520xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%2520viewBox%3D%270%25200%2520100%2520100%27%253E%253Crect%2520width%3D%27100%27%2520height%3D%27100%27%2520rx%3D%2725%27%2520fill%3D%27%2523f472b6%27%2F%253E%253Ctext%2520x%3D%2750%27%2520y%3D%2765%27%2520font-size%3D%2750%27%2520text-anchor%3D%27middle%27%253E%25F0%259F%2590%25B1%253C%2Ftext%253E%253C%2Fsvg%253E%22%2C%22sizes%22%3A%22192x192%20512x512%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%2C%22purpose%22%3A%22any%20maskable%22%7D%5D%7D">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&display=swap" rel="stylesheet">
@@ -27,73 +27,75 @@
     }
   </style>
 </head>
-<body class="bg-slate-50 min-h-screen text-slate-800 pb-12 select-none">
+<body class="bg-rose-50/60 min-h-screen text-[#5c4033] pb-12 select-none">
   <div class="max-w-md mx-auto p-4 sm:p-5">
     
     <header class="flex items-center justify-between mb-4">
       <div class="flex items-center gap-2">
-        <span class="text-3xl">🛒</span>
+        <span class="text-3xl">🐾</span>
         <div>
-          <h1 class="text-lg font-black tracking-tight text-slate-900 leading-none">お買い物単価くらべ〜る</h1>
-          <p class="text-xs text-slate-400 font-bold mt-1">どっちがお得？サクッと判定</p>
+          <h1 class="text-lg font-black tracking-tight text-[#4a2e2b] leading-none">お買い物単価くらべ〜る</h1>
+          <p class="text-xs text-rose-400 font-bold mt-1">どっちがお得？サクッと判定</p>
         </div>
       </div>
       <div class="flex items-center gap-1.5">
-        <button id="swapBtn" class="flex items-center gap-1 px-2.5 py-1.5 text-xs font-bold text-slate-600 bg-white border border-slate-200 rounded-lg shadow-sm active:bg-slate-100 transition-all">
+        <button id="swapBtn" class="flex items-center gap-1 px-3 py-1.5 text-xs font-bold text-[#6b443d] bg-white border border-rose-200 rounded-xl shadow-xs active:bg-rose-100 transition-all">
           <span>⇄</span> 入替
         </button>
-        <button id="resetBtn" class="flex items-center gap-1 px-2.5 py-1.5 text-xs font-bold text-rose-600 bg-rose-50 border border-rose-100 rounded-lg active:bg-rose-100 transition-all">
+        <button id="resetBtn" class="flex items-center gap-1 px-3 py-1.5 text-xs font-bold text-rose-600 bg-rose-100/70 border border-rose-200 rounded-xl active:bg-rose-200 transition-all shadow-xs">
           <span>🗑️</span> リセット
         </button>
       </div>
     </header>
 
-    <div class="grid grid-cols-3 gap-1.5 bg-slate-200/80 p-1 rounded-2xl mb-4 font-bold text-xs">
-      <button class="mode-tab py-2.5 rounded-xl transition-all flex flex-col items-center gap-0.5 bg-white text-emerald-600 shadow-sm" data-mode="weight">
+    <div class="grid grid-cols-3 gap-1.5 bg-rose-200/60 p-1.5 rounded-2xl mb-4 font-bold text-xs">
+      <button class="mode-tab py-2.5 rounded-xl transition-all flex flex-col items-center gap-0.5 bg-white text-rose-600 shadow-sm" data-mode="weight">
         <span class="text-base">🥩</span>
         <span>重さ・容量</span>
-        <span class="text-[10px] text-slate-400 font-normal">g / ml / kg / L</span>
+        <span class="text-[10px] text-[#8c6b64] font-normal">g / ml / kg / L</span>
       </button>
-      <button class="mode-tab py-2.5 rounded-xl transition-all flex flex-col items-center gap-0.5 text-slate-500 hover:text-slate-800" data-mode="count">
+      <button class="mode-tab py-2.5 rounded-xl transition-all flex flex-col items-center gap-0.5 text-[#7c5851] hover:text-[#4a2e2b]" data-mode="count">
         <span class="text-base">📦</span>
         <span>個数・パック</span>
-        <span class="text-[10px] text-slate-400 font-normal">単品 vs セット</span>
+        <span class="text-[10px] text-[#8c6b64] font-normal">単品 vs セット</span>
       </button>
-      <button class="mode-tab py-2.5 rounded-xl transition-all flex flex-col items-center gap-0.5 text-slate-500 hover:text-slate-800" data-mode="bonus">
+      <button class="mode-tab py-2.5 rounded-xl transition-all flex flex-col items-center gap-0.5 text-[#7c5851] hover:text-[#4a2e2b]" data-mode="bonus">
         <span class="text-base">✨</span>
         <span>増量・割引</span>
-        <span class="text-[10px] text-slate-400 font-normal">+〇%・見切りシール</span>
+        <span class="text-[10px] text-[#8c6b64] font-normal">+〇%・見切りシール</span>
       </button>
     </div>
 
-    <div id="resultBanner" class="bg-gradient-to-r from-slate-100 to-slate-200 border border-slate-200 rounded-2xl p-4 text-center mb-4 transition-all duration-300 shadow-sm">
-      <p class="text-sm font-bold text-slate-500 mb-0.5">価格と数量を入力すると自動判定します</p>
+    <!-- 判定バナー（ピンク×ショコラ） -->
+    <div id="resultBanner" class="bg-gradient-to-r from-pink-400 to-rose-400 text-white rounded-2xl p-4 text-center mb-4 transition-all duration-300 shadow-sm">
+      <p class="text-sm font-black tracking-wide">🐱 どちらがお得か判定します 🐶</p>
+      <p class="text-xs font-medium text-pink-100 mt-0.5">価格と数量を入力してください</p>
     </div>
 
-    <div class="space-y-3.5">
+    <div class="space-y-4">
       
-      <!-- 商品A -->
-      <div id="cardA" class="bg-white rounded-2xl p-4 border-2 border-slate-200 shadow-sm transition-all duration-200">
+      <!-- 商品A（ミルキーピンク＆ねこちゃん） -->
+      <div id="cardA" class="bg-white rounded-2xl p-4 border-2 border-pink-200 shadow-sm transition-all duration-200">
         <div class="flex justify-between items-center mb-3">
           <div class="flex items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded-lg text-xs font-black bg-emerald-100 text-emerald-700">商品 A</span>
-            <input type="text" id="nameA" placeholder="例: 通常パック / 単品" class="text-xs font-bold text-slate-600 bg-transparent placeholder-slate-300 focus:outline-none w-32 border-b border-dashed border-slate-300 pb-0.5">
+            <span class="px-2.5 py-1 rounded-lg text-xs font-black bg-pink-100 text-pink-700 border border-pink-200">🐱 商品 A</span>
+            <input type="text" id="nameA" placeholder="例: 通常パック / 単品" class="text-xs font-bold text-[#6b443d] bg-transparent placeholder-rose-300 focus:outline-none w-32 border-b border-dashed border-rose-300 pb-0.5">
           </div>
           <div class="text-right">
-            <span class="text-[11px] text-slate-400 font-bold block" id="unitLabelA">100g単価</span>
-            <span id="unitPriceA" class="text-base font-black text-slate-700">--</span>
+            <span class="text-[11px] text-[#8c6b64] font-bold block" id="unitLabelA">100g単価</span>
+            <span id="unitPriceA" class="text-base font-black text-pink-600">--</span>
           </div>
         </div>
 
         <div class="space-y-2.5">
           <div class="grid grid-cols-5 gap-2">
             <div class="col-span-3">
-              <label class="text-[11px] font-bold text-slate-500 mb-1 block" id="qtyTitleA">内容量</label>
-              <input type="number" id="qtyA" inputmode="decimal" placeholder="グラム等を入力" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-base font-black text-slate-800 focus:bg-white focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-200 transition-all">
+              <label class="text-[11px] font-bold text-[#6b443d] mb-1 block" id="qtyTitleA">内容量</label>
+              <input type="number" id="qtyA" inputmode="decimal" placeholder="グラム等を入力" class="w-full bg-rose-50/40 border border-rose-200 rounded-xl px-3 py-2.5 text-base font-black text-[#4a2e2b] focus:bg-white focus:border-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-200 transition-all">
             </div>
             <div class="col-span-2">
-              <label class="text-[11px] font-bold text-slate-500 mb-1 block">単位</label>
-              <select id="unitA" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-2 py-2.5 text-xs font-bold text-slate-700 focus:bg-white focus:border-emerald-500 focus:outline-none">
+              <label class="text-[11px] font-bold text-[#6b443d] mb-1 block">単位</label>
+              <select id="unitA" class="w-full bg-rose-50/40 border border-rose-200 rounded-xl px-2 py-2.5 text-xs font-bold text-[#5c4033] focus:bg-white focus:border-pink-400 focus:outline-none">
                 <option value="g">g (グラム)</option>
                 <option value="kg">kg (キロ)</option>
                 <option value="ml">ml (ミリ)</option>
@@ -102,19 +104,20 @@
             </div>
           </div>
 
+          <!-- クイックボタン（淡いピンクチップ） -->
           <div class="flex gap-1.5 overflow-x-auto pb-1" id="quickChipsA"></div>
 
           <div class="grid grid-cols-5 gap-2">
             <div class="col-span-3">
-              <label class="text-[11px] font-bold text-slate-500 mb-1 block">価格 (税込/税抜)</label>
+              <label class="text-[11px] font-bold text-[#6b443d] mb-1 block">価格 (税込/税抜)</label>
               <div class="relative">
-                <span class="absolute left-3 top-2 font-bold text-slate-400 text-sm">¥</span>
-                <input type="number" id="priceA" inputmode="numeric" placeholder="価格を入力" class="w-full bg-slate-50 border border-slate-200 rounded-xl pl-7 pr-3 py-2 text-base font-black text-slate-800 focus:bg-white focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-200 transition-all">
+                <span class="absolute left-3 top-2.5 font-bold text-rose-300 text-sm">¥</span>
+                <input type="number" id="priceA" inputmode="numeric" placeholder="価格を入力" class="w-full bg-rose-50/40 border border-rose-200 rounded-xl pl-7 pr-3 py-2.5 text-base font-black text-[#4a2e2b] focus:bg-white focus:border-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-200 transition-all">
               </div>
             </div>
             <div class="col-span-2">
-              <label class="text-[11px] font-bold text-slate-500 mb-1 block">値引きシール</label>
-              <select id="discountA" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-2 py-2.5 text-xs font-bold text-rose-600 focus:bg-white focus:border-rose-400 focus:outline-none">
+              <label class="text-[11px] font-bold text-[#6b443d] mb-1 block">値引きシール</label>
+              <select id="discountA" class="w-full bg-rose-50/40 border border-rose-200 rounded-xl px-2 py-2.5 text-xs font-bold text-rose-600 focus:bg-white focus:border-pink-400 focus:outline-none">
                 <option value="none">引なし</option>
                 <option value="10p">1割引 (10%)</option>
                 <option value="20p">2割引 (20%)</option>
@@ -129,28 +132,28 @@
         </div>
       </div>
 
-      <!-- 商品B -->
-      <div id="cardB" class="bg-white rounded-2xl p-4 border-2 border-slate-200 shadow-sm transition-all duration-200">
+      <!-- 商品B（ショコラピンク＆わんちゃん） -->
+      <div id="cardB" class="bg-white rounded-2xl p-4 border-2 border-amber-200 shadow-sm transition-all duration-200">
         <div class="flex justify-between items-center mb-3">
           <div class="flex items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded-lg text-xs font-black bg-amber-100 text-amber-700">商品 B</span>
-            <input type="text" id="nameB" placeholder="例: 増量品 / 大袋" class="text-xs font-bold text-slate-600 bg-transparent placeholder-slate-300 focus:outline-none w-32 border-b border-dashed border-slate-300 pb-0.5">
+            <span class="px-2.5 py-1 rounded-lg text-xs font-black bg-amber-100 text-amber-800 border border-amber-200">🐶 商品 B</span>
+            <input type="text" id="nameB" placeholder="例: 増量品 / 大袋" class="text-xs font-bold text-[#6b443d] bg-transparent placeholder-rose-300 focus:outline-none w-32 border-b border-dashed border-rose-300 pb-0.5">
           </div>
           <div class="text-right">
-            <span class="text-[11px] text-slate-400 font-bold block" id="unitLabelB">100g単価</span>
-            <span id="unitPriceB" class="text-base font-black text-slate-700">--</span>
+            <span class="text-[11px] text-[#8c6b64] font-bold block" id="unitLabelB">100g単価</span>
+            <span id="unitPriceB" class="text-base font-black text-amber-700">--</span>
           </div>
         </div>
 
         <div class="space-y-2.5">
           <div class="grid grid-cols-5 gap-2">
             <div class="col-span-3">
-              <label class="text-[11px] font-bold text-slate-500 mb-1 block" id="qtyTitleB">内容量</label>
-              <input type="number" id="qtyB" inputmode="decimal" placeholder="グラム等を入力" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-base font-black text-slate-800 focus:bg-white focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-200 transition-all">
+              <label class="text-[11px] font-bold text-[#6b443d] mb-1 block" id="qtyTitleB">内容量</label>
+              <input type="number" id="qtyB" inputmode="decimal" placeholder="グラム等を入力" class="w-full bg-amber-50/40 border border-amber-200 rounded-xl px-3 py-2.5 text-base font-black text-[#4a2e2b] focus:bg-white focus:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-200 transition-all">
             </div>
             <div class="col-span-2">
-              <label class="text-[11px] font-bold text-slate-500 mb-1 block">単位 / 増量</label>
-              <select id="unitB" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-2 py-2.5 text-xs font-bold text-slate-700 focus:bg-white focus:border-emerald-500 focus:outline-none">
+              <label class="text-[11px] font-bold text-[#6b443d] mb-1 block">単位 / 増量</label>
+              <select id="unitB" class="w-full bg-amber-50/40 border border-amber-200 rounded-xl px-2 py-2.5 text-xs font-bold text-[#5c4033] focus:bg-white focus:border-amber-400 focus:outline-none">
                 <option value="g">g (グラム)</option>
                 <option value="kg">kg (キロ)</option>
                 <option value="ml">ml (ミリ)</option>
@@ -159,19 +162,20 @@
             </div>
           </div>
 
+          <!-- クイックボタン（ショコラベージュチップ） -->
           <div class="flex gap-1.5 overflow-x-auto pb-1" id="quickChipsB"></div>
 
           <div class="grid grid-cols-5 gap-2">
             <div class="col-span-3">
-              <label class="text-[11px] font-bold text-slate-500 mb-1 block">価格 (税込/税抜)</label>
+              <label class="text-[11px] font-bold text-[#6b443d] mb-1 block">価格 (税込/税抜)</label>
               <div class="relative">
-                <span class="absolute left-3 top-2 font-bold text-slate-400 text-sm">¥</span>
-                <input type="number" id="priceB" inputmode="numeric" placeholder="価格を入力" class="w-full bg-slate-50 border border-slate-200 rounded-xl pl-7 pr-3 py-2 text-base font-black text-slate-800 focus:bg-white focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-200 transition-all">
+                <span class="absolute left-3 top-2.5 font-bold text-amber-400 text-sm">¥</span>
+                <input type="number" id="priceB" inputmode="numeric" placeholder="価格を入力" class="w-full bg-amber-50/40 border border-amber-200 rounded-xl pl-7 pr-3 py-2.5 text-base font-black text-[#4a2e2b] focus:bg-white focus:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-200 transition-all">
               </div>
             </div>
             <div class="col-span-2">
-              <label class="text-[11px] font-bold text-slate-500 mb-1 block">値引きシール</label>
-              <select id="discountB" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-2 py-2.5 text-xs font-bold text-rose-600 focus:bg-white focus:border-rose-400 focus:outline-none">
+              <label class="text-[11px] font-bold text-[#6b443d] mb-1 block">値引きシール</label>
+              <select id="discountB" class="w-full bg-amber-50/40 border border-rose-200 rounded-xl px-2 py-2.5 text-xs font-bold text-rose-600 focus:bg-white focus:border-pink-400 focus:outline-none">
                 <option value="none">引なし</option>
                 <option value="10p">1割引 (10%)</option>
                 <option value="20p">2割引 (20%)</option>
@@ -216,7 +220,7 @@
       chipsData[currentMode].A.forEach(item => {
         const btn = document.createElement('button');
         btn.type = 'button';
-        btn.className = 'text-[11px] font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 rounded-lg px-2.5 py-1 shrink-0 active:scale-95 transition-all';
+        btn.className = 'text-[11px] font-bold bg-pink-100/80 text-pink-700 border border-pink-200 rounded-lg px-2.5 py-1 shrink-0 active:scale-95 transition-all shadow-xs';
         btn.textContent = item.lbl;
         btn.onclick = () => { document.getElementById('qtyA').value = item.v; calculate(); };
         cA.appendChild(btn);
@@ -225,7 +229,7 @@
       chipsData[currentMode].B.forEach(item => {
         const btn = document.createElement('button');
         btn.type = 'button';
-        btn.className = 'text-[11px] font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 rounded-lg px-2.5 py-1 shrink-0 active:scale-95 transition-all';
+        btn.className = 'text-[11px] font-bold bg-amber-100/80 text-amber-900 border border-amber-200 rounded-lg px-2.5 py-1 shrink-0 active:scale-95 transition-all shadow-xs';
         btn.textContent = item.lbl;
         btn.onclick = () => {
           if (item.type === 'bonus') {
@@ -247,10 +251,10 @@
     document.querySelectorAll('.mode-tab').forEach(tab => {
       tab.addEventListener('click', (e) => {
         document.querySelectorAll('.mode-tab').forEach(t => {
-          t.className = 'mode-tab py-2.5 rounded-xl transition-all flex flex-col items-center gap-0.5 text-slate-500 hover:text-slate-800';
+          t.className = 'mode-tab py-2.5 rounded-xl transition-all flex flex-col items-center gap-0.5 text-[#7c5851] hover:text-[#4a2e2b]';
         });
         const target = e.currentTarget;
-        target.className = 'mode-tab py-2.5 rounded-xl transition-all flex flex-col items-center gap-0.5 bg-white text-emerald-600 shadow-sm font-bold';
+        target.className = 'mode-tab py-2.5 rounded-xl transition-all flex flex-col items-center gap-0.5 bg-white text-rose-600 shadow-sm font-bold';
         currentMode = target.dataset.mode;
         updateModeUI();
       });
@@ -344,43 +348,46 @@
       const cardB = document.getElementById('cardB');
       const banner = document.getElementById('resultBanner');
 
-      cardA.classList.remove('ring-4', 'ring-emerald-400', 'bg-emerald-50/40', 'border-emerald-500');
-      cardB.classList.remove('ring-4', 'ring-amber-400', 'bg-amber-50/40', 'border-amber-500');
+      cardA.classList.remove('ring-4', 'ring-pink-400', 'bg-pink-50/70', 'border-pink-500');
+      cardB.classList.remove('ring-4', 'ring-amber-400', 'bg-amber-50/70', 'border-amber-500');
 
       if (unitCostA > 0 && unitCostB > 0) {
         const diff = Math.abs(unitCostA - unitCostB);
         const diffPercent = (diff / Math.max(unitCostA, unitCostB) * 100).toFixed(1);
 
         if (Math.abs(unitCostA - unitCostB) < 0.001) {
-          banner.className = 'bg-slate-800 text-white rounded-2xl p-4 text-center mb-4 shadow-lg';
+          banner.className = 'bg-[#6b443d] text-white rounded-2xl p-4 text-center mb-4 shadow-md';
           banner.innerHTML = `
-            <div class="text-xs font-bold text-slate-300">引き分け</div>
+            <div class="text-xs font-bold text-pink-200">引き分け</div>
             <div class="text-xl font-black mt-0.5">どちらも全く同じ単価です！</div>
           `;
         } else if (unitCostA < unitCostB) {
-          cardA.classList.add('ring-4', 'ring-emerald-400', 'bg-emerald-50/40', 'border-emerald-500');
-          banner.className = 'bg-emerald-500 text-white rounded-2xl p-4 text-center mb-4 shadow-lg shadow-emerald-500/20';
+          cardA.classList.add('ring-4', 'ring-pink-400', 'bg-pink-50/70', 'border-pink-500');
+          banner.className = 'bg-gradient-to-r from-pink-500 to-rose-400 text-white rounded-2xl p-4 text-center mb-4 shadow-md shadow-pink-500/20';
           banner.innerHTML = `
             <div class="flex items-center justify-center gap-1.5 text-xs font-bold bg-white/20 py-0.5 px-3 rounded-full w-max mx-auto mb-1">
-              <span>👑</span> 商品 A の方がおトク！
+              <span>🐱✨</span> 商品 A の方がおトク！
             </div>
             <div class="text-2xl font-black tracking-tight">約 ${diffPercent}% 安い</div>
-            <div class="text-xs font-bold mt-1 text-emerald-100">${unitName}あたり 約 ¥${diff.toFixed(1)} お得</div>
+            <div class="text-xs font-bold mt-1 text-pink-100">${unitName}あたり 約 ¥${diff.toFixed(1)} お得</div>
           `;
         } else {
-          cardB.classList.add('ring-4', 'ring-amber-400', 'bg-amber-50/40', 'border-amber-500');
-          banner.className = 'bg-amber-500 text-white rounded-2xl p-4 text-center mb-4 shadow-lg shadow-amber-500/20';
+          cardB.classList.add('ring-4', 'ring-amber-400', 'bg-amber-50/70', 'border-amber-500');
+          banner.className = 'bg-gradient-to-r from-amber-600 to-amber-500 text-white rounded-2xl p-4 text-center mb-4 shadow-md shadow-amber-500/20';
           banner.innerHTML = `
             <div class="flex items-center justify-center gap-1.5 text-xs font-bold bg-white/20 py-0.5 px-3 rounded-full w-max mx-auto mb-1">
-              <span>👑</span> 商品 B の方がおトク！
+              <span>🐶✨</span> 商品 B の方がおトク！
             </div>
             <div class="text-2xl font-black tracking-tight">約 ${diffPercent}% 安い</div>
             <div class="text-xs font-bold mt-1 text-amber-100">${unitName}あたり 約 ¥${diff.toFixed(1)} お得</div>
           `;
         }
       } else {
-        banner.className = 'bg-gradient-to-r from-slate-100 to-slate-200 border border-slate-200 rounded-2xl p-4 text-center mb-4 shadow-sm';
-        banner.innerHTML = '<p class="text-sm font-bold text-slate-500 mb-0.5">価格と数量を入力すると自動判定します</p>';
+        banner.className = 'bg-gradient-to-r from-pink-400 to-rose-400 text-white rounded-2xl p-4 text-center mb-4 shadow-sm';
+        banner.innerHTML = `
+          <p class="text-sm font-black tracking-wide">🐱 どちらがお得か判定します 🐶</p>
+          <p class="text-xs font-medium text-pink-100 mt-0.5">${unitName}単価を計算します</p>
+        `;
       }
     }
 
